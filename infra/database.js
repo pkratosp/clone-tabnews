@@ -7,7 +7,10 @@ async function query(queryObject) {
     const result = await client.query(queryObject);
     return result;
   } catch (error) {
-@@ -22,16 +14,31 @@
+    console.error(error);
+    throw error;
+  } finally {
+    await client.end();
   }
 }
 
